@@ -14,7 +14,7 @@ namespace cvsView
             int n = 0;
             int nn = 0;
             float maxsss = 0;
-            int indexss = 0;
+            int indexss = 1;
             if (args.Count()>1)
             {
                 Console.WriteLine(args[0]);
@@ -26,12 +26,13 @@ namespace cvsView
                     int nnnn = int.Parse(args[1].Trim());
                     string[] lines = System.IO.File.ReadAllLines("" + args[0]);
 
-                    for (n = 0; n < lines.Count(); n++)
+                    for (n = 1; n < lines.Count(); n++)
                     {
+                        
                         string[] fields = lines[n].Split(',');
-                        if (n == 0)
+                        if (n == 1)
                         {
-                            indexss = 0;
+                            indexss = 1;
                             try
                             {
                                 maxsss = float.Parse(fields[nnnn].Trim());
@@ -43,7 +44,7 @@ namespace cvsView
                         }
                         else
                         {
-                           
+                            
                             try
                             {
                                float maxssss = float.Parse(fields[nnnn].Trim());
