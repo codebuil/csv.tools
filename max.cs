@@ -43,7 +43,7 @@ namespace cvsView
                         }
                         else
                         {
-                            indexss = 0;
+                           
                             try
                             {
                                float maxssss = float.Parse(fields[nnnn].Trim());
