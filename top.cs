@@ -33,19 +33,22 @@ namespace cvsView
                     arg = int.Parse(args[1]);
                     string[] lines = System.IO.File.ReadAllLines("" + args[0]);
                     string s = "";
+                    
                     for (n = 1; n < lines.Count(); n++)
                     {
                         string[] sss = lines[n].Split(',');
                         try
                         {
-
                             float ff = float.Parse(sss[arg]);
+
                             if (n == 1)
                             {
                                 for (nn = 0; nn < topss; nn++)
                                 {
-                                    iii[nn] = ff;
-                                    iiii[nn] = 1;
+                                    string[] ssss = lines[n+1].Split(',');
+                                    float fff = float.Parse(sss[arg]);
+                                    iii[nn] = fff;
+                                    iiii[nn] = nn+1;
                                 }
                                 values = ff;
                                 poss = 1;
