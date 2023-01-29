@@ -31,20 +31,23 @@ namespace cvsView
                     string s = "";
                     string[] sss = new string[lines.Count() + 1];
                     int[] iii = new int[lines.Count() + 1];
+                    string[] sssss = lines[1].Split(',');
                     sss[0] = lines[0];
-                    sss[1] = lines[1];
+                    sss[1] = String.Copy(sssss[arg]);
                     iii[0] = 0;
                     iii[1] = 1;
                     for (n = 2; n < lines.Count(); n++)
                     {
                         string[] ssss = lines[n].Split(',');
-                        sss[n] = ssss[arg];
+                        sss[n] = String.Copy(ssss[arg]);
                         try
                         {
+                            iii[n] = n;
                             indexss = n;
                             for (nn = 1; nn < n; nn++)
                             {
-                                if (sss[nn].CompareTo(sss[indexss]) == 1)
+                                int uuu = iii[nn];
+                                if (String.Compare(sss[uuu],sss[indexss], comparisonType: StringComparison.CurrentCultureIgnoreCase ) > 0)
                                 {
                                     poss = iii[nn];
                                     iii[nn] = indexss;
@@ -60,7 +63,7 @@ namespace cvsView
                         }
 
                     }
-                    for (n = 1; n < lines.Count(); n++) 
+                    for (n = 0; n < lines.Count(); n++)
                     {
                         int k = iii[n];
                         Console.WriteLine(lines[k]);
